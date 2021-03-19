@@ -4,7 +4,6 @@ using System.Text;
 
 namespace DataStructures.LinkedLists
 {
-
   /*
   Linked lists can be thought of from a high level perspective as being a series of nodes.
   Each node has at least a single pointer to the next node, and in the last node’s case a null pointer 
@@ -27,11 +26,10 @@ namespace DataStructures.LinkedLists
 
   public interface ILinkedList
   {
-    void AddFirst(object data);
-    void AddLast(object data);
-    void Delete();
-    void Search();
-
-
+    public void AddFirst(object data);
+    public void Add(object data);
+    public bool Delete(object value);
+    public bool Search(object value);
+    public void Print();
   }
 }

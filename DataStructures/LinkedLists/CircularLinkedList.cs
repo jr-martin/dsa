@@ -4,10 +4,11 @@ using System.Text;
 
 namespace DataStructures.LinkedLists
 {
-  public class DoublyLinkedList : ILinkedList
+  public class CircularLinkedList : ILinkedList
   {
     // first node
     private Node _head;
+    private Node _tail;
 
     public void AddFirst(object data)
     {
@@ -23,6 +24,7 @@ namespace DataStructures.LinkedLists
     {
       throw new NotImplementedException();
     }
+
     public bool Search(object value)
     {
       // if the head is null, the list is empty therefore value doesn't exist 
