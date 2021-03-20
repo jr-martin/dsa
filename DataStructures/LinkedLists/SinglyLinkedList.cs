@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DataStructures.LinkedLists
 {
@@ -39,7 +37,7 @@ namespace DataStructures.LinkedLists
       else
       {
         // start at the first node and iterate through until the last node is reached
-        // (i.e. when the value of next is null, the end of the LL has been reached
+        // (i.e. when the value of next is null, the end of the LL has been reached)
         Node currentNode = _head;
         while (currentNode.next != null)
         {

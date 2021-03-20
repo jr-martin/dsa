@@ -9,7 +9,9 @@ namespace dsa
   {
     static void Main(string[] args)
     {
-      DoSinglyLinkedList();
+      //DoSinglyLinkedList();
+      Console.WriteLine("-------------");
+      DoDoublyLinkedList();
     }
 
     public static void DoSinglyLinkedList()
@@ -56,6 +58,23 @@ namespace dsa
       singlyLinkedListTwo.Print();
       var deletedY = singlyLinkedListTwo.Delete("Y");
       Console.WriteLine(deletedY);
+    }
+
+    public static void DoDoublyLinkedList()
+    {
+      var doublyLinkedList = new DoublyLinkedList();
+      doublyLinkedList.Add("1");
+      doublyLinkedList.Add("1");
+      doublyLinkedList.Add("2");
+      doublyLinkedList.Add("3");
+      doublyLinkedList.Add("4");
+      doublyLinkedList.Add("5");
+      doublyLinkedList.Add("6");
+      doublyLinkedList.Add("7");
+      doublyLinkedList.Add("8");
+      doublyLinkedList.Add("9");
+      doublyLinkedList.AddFirst("0");
+      doublyLinkedList.Print();
     }
   }
 }
