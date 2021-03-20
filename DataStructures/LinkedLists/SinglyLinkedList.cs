@@ -6,14 +6,22 @@ namespace DataStructures.LinkedLists
   {
     // first node
     private Node _head;
+    private Node _tail;
 
     public void AddFirst(object data)
     {
       // create new node to be added to the LL
       Node nodeToAdd = new Node();
-
-      // assign the data and assign the next node as the head
       nodeToAdd.data = data;
+
+      // if the head is null, the LL is empty,
+      // so this node will be both the head and the tail
+      if (_head == null)
+      {
+        _tail = nodeToAdd;
+      }
+
+      // assign the next node as the head
       nodeToAdd.next = _head;
 
       // assign the head as the node just created
@@ -27,25 +35,20 @@ namespace DataStructures.LinkedLists
       nodeToAdd.data = data;
 
       // if head does not exist, the LL is empty
-      // create a new head Node and assign data
-      // set the next property to null, as there are no other nodes
+      // set the head and tail to the new Node
+      // for clarity, explicitly set the next property to null, as there are no other nodes
       if (_head == null)
       {
         _head = nodeToAdd;
+        _tail = nodeToAdd;
         _head.next = null;
       }
+      // else, set the current tail's Next node to the new node,
+      // and update the tail to be the newly created node
       else
       {
-        // start at the first node and iterate through until the last node is reached
-        // (i.e. when the value of next is null, the end of the LL has been reached)
-        Node currentNode = _head;
-        while (currentNode.next != null)
-        {
-          currentNode = currentNode.next;
-        }
-
-        // when the last node has been reached, assign the new node to the next property of the current node
-        currentNode.next = nodeToAdd;
+        _tail.next = nodeToAdd;
+        _tail = nodeToAdd;
       }
     }
 
@@ -56,10 +59,11 @@ namespace DataStructures.LinkedLists
       {
         return false;
       }
-      //if head is the only value, set it to null
+      //if head is the only value, set it and the tail to null
       if (_head.next == null) 
       {
         _head = null;
+        _tail = null;
         return true;
       }
       else
@@ -74,8 +78,8 @@ namespace DataStructures.LinkedLists
             // first check if we are removing the last node
             if (currentNode.next == null)
             {
-              currentNode = null;
-              previousNode.next = currentNode;
+              previousNode.next = null;
+              _tail = previousNode;
               return true;
             }
             // "delete" by re-assiging the previous node to be the current node

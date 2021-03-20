@@ -6,17 +6,26 @@ namespace DataStructures.LinkedLists
   {
     // first node
     private DoubleNode _head;
+    private DoubleNode _tail;
 
     public void AddFirst(object data)
     {
       // create new node to be added to the LL
       DoubleNode nodeToAdd = new DoubleNode();
-
-      // assign the data and assign the next node as the head
-      // explicitly assigning a null value as the previous node because it is the first
       nodeToAdd.data = data;
+
+      // if the head is null, the LL is empty,
+      // so this node will be both the head and the tail
+      if (_head == null)
+      {
+        _tail = nodeToAdd;
+      }
+
+      // set the current head's previous value to the new node
+      _head.previous = nodeToAdd;
+
+      // set the new node's next value as the current head
       nodeToAdd.next = _head;
-      nodeToAdd.previous = null;
 
       // assign the head as the node just created
       _head = nodeToAdd;
@@ -34,22 +43,18 @@ namespace DataStructures.LinkedLists
       if (_head == null)
       {
         _head = nodeToAdd;
+        _tail = nodeToAdd;
         _head.next = null;
         _head.previous = null;
       }
+      // else, set the current tail's Next node to the new node,
+      // set the new node's previous pointer to the current tail
+      // update the tail to be the newly created node
       else
       {
-        // start at the first node and iterate through until the last node is reached
-        // (i.e. when the value of next is null, the end of the LL has been reached)
-        DoubleNode currentNode = _head;
-        while (currentNode.next != null)
-        {
-          currentNode = currentNode.next;
-        }
-
-        // when the last node has been reached, assign the new node to the next property of the current node
-        currentNode.next = nodeToAdd;
-        nodeToAdd.previous = currentNode;
+        _tail.next = nodeToAdd;
+        nodeToAdd.previous = _tail;
+        _tail = nodeToAdd;
       }
     }
 
@@ -78,8 +83,8 @@ namespace DataStructures.LinkedLists
             // first check if we are removing the last node
             if (currentNode.next == null)
             {
-              currentNode = null;
-              previousNode.next = currentNode;
+              previousNode.next = null;
+              _tail = previousNode;
               return true;
             }
             // "delete" by re-assiging the previous node to be the current node

@@ -9,9 +9,10 @@ namespace dsa
   {
     static void Main(string[] args)
     {
-      //DoSinglyLinkedList();
+      DoSinglyLinkedList();
       Console.WriteLine("-------------");
       DoDoublyLinkedList();
+      Console.WriteLine("-------------");
     }
 
     public static void DoSinglyLinkedList()
