@@ -132,7 +132,7 @@ namespace DataStructures.LinkedLists
     }
   }
 
-  internal class DoubleNode
+  public class DoubleNode
   {
     public object data;
     public DoubleNode next;

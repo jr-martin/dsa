@@ -123,4 +123,10 @@ namespace DataStructures.LinkedLists
       }
     }
   }
+
+  public class Node
+  {
+    public object data;
+    public Node next;
+  }
 }
