@@ -55,7 +55,44 @@ namespace DataStructures.LinkedLists
 
     public bool Delete(object value)
     {
-      throw new NotImplementedException();
+      // if the head is null, the list is empty therefore value doesn't exist 
+      if (_head == null)
+      {
+        return false;
+      }
+      //if head is the only value, set it to null
+      if (_head.next == null)
+      {
+        _head = null;
+        return true;
+      }
+      else
+      {
+        DoubleNode currentNode = _head;
+        DoubleNode previousNode = null;
+
+        while (currentNode != null)
+        {
+          if (currentNode.data == value)
+          {
+            // first check if we are removing the last node
+            if (currentNode.next == null)
+            {
+              currentNode = null;
+              previousNode.next = currentNode;
+              return true;
+            }
+            // "delete" by re-assiging the previous node to be the current node
+            // also assign the next node's previous node to the current node's previous node
+            previousNode.next = currentNode.next;
+            currentNode.next.previous = previousNode;
+            return true;
+          }
+          previousNode = currentNode;
+          currentNode = currentNode.next;
+        }
+        return false;
+      }
     }
 
     public bool Search(object value)

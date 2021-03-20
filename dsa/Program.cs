@@ -64,7 +64,6 @@ namespace dsa
     {
       var doublyLinkedList = new DoublyLinkedList();
       doublyLinkedList.Add("1");
-      doublyLinkedList.Add("1");
       doublyLinkedList.Add("2");
       doublyLinkedList.Add("3");
       doublyLinkedList.Add("4");
@@ -74,6 +73,12 @@ namespace dsa
       doublyLinkedList.Add("8");
       doublyLinkedList.Add("9");
       doublyLinkedList.AddFirst("0");
+      doublyLinkedList.Print();
+
+      Console.WriteLine("-------------");
+
+      var deletedThree = doublyLinkedList.Delete("3");
+      Console.WriteLine(deletedThree);
       doublyLinkedList.Print();
     }
   }
