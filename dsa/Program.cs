@@ -1,7 +1,6 @@
 ﻿using System;
-using Algorithms;
-using DataStructures;
 using DataStructures.LinkedLists;
+using DataStructures.Hashtables;
 
 namespace dsa
 {
@@ -9,10 +8,23 @@ namespace dsa
   {
     static void Main(string[] args)
     {
-      DoSinglyLinkedList();
-      Console.WriteLine("-------------");
-      DoDoublyLinkedList();
-      Console.WriteLine("-------------");
+      //DoSinglyLinkedList();
+      //Console.WriteLine("-------------");
+      //DoDoublyLinkedList();
+      //Console.WriteLine("-------------");
+
+
+      var hashtable = new ArrayHashtable();
+      //Console.WriteLine(hashtable.Hash(7));
+      //Console.WriteLine(hashtable.Hash(13));
+      //Console.WriteLine(hashtable.Hash(100));
+
+      Console.WriteLine(hashtable.Add(74, "hello"));
+      Console.WriteLine(hashtable.Add(74, "hi"));
+      Console.WriteLine(hashtable.Add(23, "goodbye"));
+
+      Console.WriteLine(hashtable.Get(74));
+      Console.WriteLine(hashtable.Get(23));
     }
 
     public static void DoSinglyLinkedList()
