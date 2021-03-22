@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataStructures.Hashtables
 {
-  // this hashtable is implemented only using a jagged array
+  // this hashtable is implemented only using a jagged array (which is not the best solution)
   public class ArrayHashtable
   {
     private object[][] _buckets;
@@ -61,8 +61,8 @@ namespace DataStructures.Hashtables
       var bucket = _buckets[bucketIndex];
 
       // create a KVP tuple
-      var newKvp = Tuple.Create(key, value);
-
+      //var newKvp = Tuple.Create(key, value);
+      var newKvp = new KeyValuePair<int, string>(key, value);
 
       //
       //
@@ -79,7 +79,7 @@ namespace DataStructures.Hashtables
       if (bucket == null)
       {
         //TODO: determine what size this array should be (this is why we use linked lists for chaining)
-        _buckets[bucketIndex] = new Tuple<int, string>[_size];
+        _buckets[bucketIndex] = new KeyValuePair<int, string>[_size];
 
         // add the KVP tuple to the first value in the array
         _buckets[bucketIndex][0] = newKvp;
@@ -89,9 +89,9 @@ namespace DataStructures.Hashtables
       else
       {
         // search through the bucket and ensure that the key does not already exist
-        foreach (Tuple<int, string> keyValuePair in bucket)
+        foreach (KeyValuePair<int, string> keyValuePair in bucket)
         {
-          if (keyValuePair.Item1 == key)
+          if (keyValuePair.Key == key)
           {
             //duplicate key
             return false;
@@ -112,8 +112,9 @@ namespace DataStructures.Hashtables
       }
     }
 
-    public bool Remove(int key, string value)
+    public bool Remove(int key)
     {
+      // not worth implementing at this time due to arrays being immutable
       throw new NotImplementedException();
     }
 
@@ -126,10 +127,10 @@ namespace DataStructures.Hashtables
 
       for (var i = 0; i < bucket.Length; i++)
       {
-        Tuple<int, string> kvp = (Tuple<int, string>)bucket[i];
-        if (kvp.Item1 == key)
+        var kvp = (KeyValuePair<int, string>)bucket[i];
+        if (kvp.Key == key)
         {
-          storedValue = kvp.Item2;
+          storedValue = kvp.Value;
           break;
         }
       }
@@ -152,31 +153,16 @@ namespace DataStructures.Hashtables
     {
       return key % _size;
     }
+  }
 
-    //public int Hash(string key)
-    //{
-    //  var h = 0;
-    //  var offset = 0;
-
-    //  for (int i = 0; i < key.Length; i++)
-    //  {
-    //    h = 31 * h + key[offset++];
-    //  }
-    //  return h;
-    //}
-
-    //static int Hash(string s, string[] array)
-    //{
-    //  int total = 0;
-    //  char[] c;
-    //  c = s.ToCharArray();
-
-    //  // Summing up all the ASCII values  
-    //  // of each alphabet in the string 
-    //  for (int k = 0; k <= c.GetUpperBound(0); k++)
-    //    total += (int)c[k];
-
-    //  return total % array.GetUpperBound(0);
-    //}
+  class KeyValuePair<K, V>
+  {
+    public K Key;
+    public V Value;
+    public KeyValuePair(K key, V value)
+    {
+      Key = key;
+      Value = value;
+    }
   }
 }

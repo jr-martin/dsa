@@ -21,10 +21,12 @@ namespace dsa
 
       Console.WriteLine(hashtable.Add(74, "hello"));
       Console.WriteLine(hashtable.Add(74, "hi"));
+      Console.WriteLine(hashtable.Add(11, "hi"));
       Console.WriteLine(hashtable.Add(23, "goodbye"));
 
       Console.WriteLine(hashtable.Get(74));
       Console.WriteLine(hashtable.Get(23));
+      Console.WriteLine(hashtable.Get(11));
     }
 
     public static void DoSinglyLinkedList()
