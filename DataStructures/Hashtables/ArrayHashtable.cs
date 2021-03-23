@@ -60,8 +60,7 @@ namespace DataStructures.Hashtables
 
       var bucket = _buckets[bucketIndex];
 
-      // create a KVP tuple
-      //var newKvp = Tuple.Create(key, value);
+      // create a KVP object
       var newKvp = new KeyValuePair<int, string>(key, value);
 
       //
@@ -75,13 +74,13 @@ namespace DataStructures.Hashtables
       //
 
 
-      // if the current bucket is empty, initialize an array of tuples to store the KeyValuePairs
+      // if the current bucket is empty, initialize an array of KVP objects to store the KeyValuePairs
       if (bucket == null)
       {
         //TODO: determine what size this array should be (this is why we use linked lists for chaining)
         _buckets[bucketIndex] = new KeyValuePair<int, string>[_size];
 
-        // add the KVP tuple to the first value in the array
+        // add the KVP object to the first value in the array
         _buckets[bucketIndex][0] = newKvp;
 
         return true;
@@ -133,12 +132,6 @@ namespace DataStructures.Hashtables
           storedValue = kvp.Value;
           break;
         }
-      }
-
-      if (storedValue == null)
-      {
-        // null if object not found
-        return null;
       }
 
       return storedValue;
