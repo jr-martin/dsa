@@ -7,8 +7,14 @@ namespace DataStructures.LinkedLists
   public class CircularLinkedList : ILinkedList
   {
     // first node
-    private Node _head;
-    private Node _tail;
+    private CircleNode _head;
+    private CircleNode _tail;
+
+    private class CircleNode
+    {
+      public object data;
+      public CircleNode next;
+    }
 
     public void AddFirst(object data)
     {
@@ -27,33 +33,11 @@ namespace DataStructures.LinkedLists
 
     public bool Search(object value)
     {
-      // if the head is null, the list is empty therefore value doesn't exist 
-      if (_head == null)
-      {
-        return false;
-      }
-
-      // iterate through and check if each data is equal to input. immediately return true if so
-      Node currentNode = _head;
-      while (currentNode != null)
-      {
-        if (currentNode.data == value)
-        {
-          return true;
-        }
-        currentNode = currentNode.next;
-      }
-      return false;
+      throw new NotImplementedException();
     }
     public void Print()
     {
-      // iterate through the nodes
-      Node currentNode = _head;
-      while (currentNode != null)
-      {
-        Console.WriteLine(currentNode.data.ToString());
-        currentNode = currentNode.next;
-      }
+      throw new NotImplementedException();
     }
   }
 }

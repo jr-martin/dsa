@@ -8,6 +8,13 @@ namespace DataStructures.LinkedLists
     private DoubleNode _head;
     private DoubleNode _tail;
 
+    private class DoubleNode
+    {
+      public object data;
+      public DoubleNode next;
+      public DoubleNode previous;
+    }
+
     public void AddFirst(object data)
     {
       // create new node to be added to the LL
@@ -130,12 +137,5 @@ namespace DataStructures.LinkedLists
         currentNode = currentNode.next;
       }
     }
-  }
-
-  public class DoubleNode
-  {
-    public object data;
-    public DoubleNode next;
-    public DoubleNode previous;
   }
 }

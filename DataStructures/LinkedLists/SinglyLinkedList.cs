@@ -8,6 +8,12 @@ namespace DataStructures.LinkedLists
     private Node _head;
     private Node _tail;
 
+    private class Node
+    {
+      public object data;
+      public Node next;
+    }
+
     public void AddFirst(object data)
     {
       // create new node to be added to the LL
@@ -122,11 +128,5 @@ namespace DataStructures.LinkedLists
         currentNode = currentNode.next;
       }
     }
-  }
-
-  public class Node
-  {
-    public object data;
-    public Node next;
   }
 }

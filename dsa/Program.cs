@@ -1,6 +1,7 @@
 ﻿using System;
 using DataStructures.LinkedLists;
 using DataStructures.Hashtables;
+using DataStructures.Trees;
 
 namespace dsa
 {
@@ -17,6 +18,8 @@ namespace dsa
       Console.WriteLine("-------------");
       DoArrayHashtable();
 
+
+      DoTree();
     }
 
     public static void DoSinglyLinkedList()
@@ -106,6 +109,14 @@ namespace dsa
       Console.WriteLine(hashtable.Get(74));
       Console.WriteLine(hashtable.Get(23));
       Console.WriteLine(hashtable.Get(11));
+
+      Console.WriteLine("-------------");
+    }
+
+    public static void DoTree()
+    {
+      var arr = new int[] {8, 4, 90, 1, 78, 0, 2, 45, 2 };
+      var tree = new BasicTree(arr);
 
       Console.WriteLine("-------------");
     }
