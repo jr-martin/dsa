@@ -115,10 +115,66 @@ namespace dsa
 
     public static void DoTree()
     {
-      var arr = new int[] {8, 4, 90, 1, 78, 0, 2, 45, 2 };
-      var tree = new BasicTree(arr);
 
-      Console.WriteLine("-------------");
+      #region basic tree initialization
+      var root = new TreeNode
+      {
+        data = "root"
+      };
+
+      var childOne = new TreeNode
+      {
+        data = "childOne"
+      };
+
+      var childTwo = new TreeNode
+      {
+        data = "childTwo"
+      };
+
+      var grandChildOne = new TreeNode
+      {
+        data = "grandChildOne"
+      };
+
+      var grandChildTwo = new TreeNode
+      {
+        data = "grandChildTwo"
+      };
+
+      var grandChildThree = new TreeNode
+      {
+        data = "grandChildThree"
+      };
+
+      var grandChildFour = new TreeNode
+      {
+        data = "grandChildFour"
+      };
+
+      var childrenArray = new TreeNode[]
+      {
+        childOne,
+        childTwo
+      };
+
+      var grandChildrenArrayOne = new TreeNode[]
+      {
+        grandChildOne,
+        grandChildTwo
+      };
+
+      var grandChildrenArrayTwo = new TreeNode[]
+      {
+        grandChildThree,
+        grandChildFour
+      };
+
+      root.children = childrenArray;
+      childOne.children = grandChildrenArrayOne;
+      childTwo.children = grandChildrenArrayTwo;
+
+      #endregion
     }
   }
 }
