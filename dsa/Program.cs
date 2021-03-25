@@ -18,8 +18,9 @@ namespace dsa
       Console.WriteLine("-------------");
       DoArrayHashtable();
 
+      DoBasicTree();
 
-      DoTree();
+      DoBst();
     }
 
     public static void DoSinglyLinkedList()
@@ -113,10 +114,8 @@ namespace dsa
       Console.WriteLine("-------------");
     }
 
-    public static void DoTree()
+    public static void DoBasicTree()
     {
-
-      #region basic tree initialization
       var root = new TreeNode
       {
         data = "root"
@@ -173,8 +172,24 @@ namespace dsa
       root.children = childrenArray;
       childOne.children = grandChildrenArrayOne;
       childTwo.children = grandChildrenArrayTwo;
+    }
 
-      #endregion
+    public static void DoBst()
+    {
+      var bst = new BinarySearchTree();
+      bst.Add(9);
+      bst.Add(4);
+      bst.Add(10);
+      bst.Add(11);
+      bst.Add(2);
+      bst.Add(3);
+      bst.Add(8);
+      bst.Add(6);
+
+      var foundNode = bst.Search(3);
+
+      bst.Remove(4);
+
     }
   }
 }
