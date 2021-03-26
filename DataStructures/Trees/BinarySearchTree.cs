@@ -101,6 +101,8 @@ namespace DataStructures.Trees
 
     private BstNode Remove(BstNode currentNode, int value)
     {
+      throw new NotImplementedException(); //wip
+
       // tree is empty if root is null
       if (currentNode == null)
       {
@@ -167,12 +169,6 @@ namespace DataStructures.Trees
     }
 
     #endregion
-
-
-    public void Balance()
-    {
-      throw new NotImplementedException();
-    }
   }
 
   public class BstNode
