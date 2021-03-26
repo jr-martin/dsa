@@ -2,6 +2,8 @@
 using DataStructures.LinkedLists;
 using DataStructures.Hashtables;
 using DataStructures.Trees;
+using DataStructures.Queues;
+using DataStructures.Stacks;
 
 namespace dsa
 {
@@ -18,9 +20,18 @@ namespace dsa
       Console.WriteLine("-------------");
       DoArrayHashtable();
 
+      Console.WriteLine("Trees");
+      Console.WriteLine("-------------");
       DoBasicTree();
-
       DoBst();
+
+      Console.WriteLine("Queue");
+      Console.WriteLine("-------------");
+      DoQueue();
+
+      Console.WriteLine("Stack");
+      Console.WriteLine("-------------");
+      DoStack();
     }
 
     public static void DoSinglyLinkedList()
@@ -188,8 +199,34 @@ namespace dsa
 
       var foundNode = bst.Search(3);
 
-      bst.Remove(4);
+      //bst.Remove(4);
 
+    }
+
+    public static void DoQueue()
+    {
+      var queue = new Queue();
+      queue.Enqueue(1);
+      queue.Enqueue(2);
+      queue.Enqueue("Three");
+      queue.Enqueue(4.0);
+      queue.Enqueue(5);
+
+      var item = queue.Peek();
+      queue.Dequeue();
+    }
+
+    public static void DoStack()
+    {
+      var stack = new Stack();
+      stack.Push(1);
+      stack.Push(2);
+      stack.Push("Three");
+      stack.Push(4.0);
+      stack.Push(5);
+
+      var item = stack.Peek();
+      stack.Pop();
     }
   }
 }
